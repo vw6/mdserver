@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"pat"
+	"fmt"
 )
 
 const (
@@ -64,6 +65,7 @@ func postHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println(err.Error())
 		errorHandler(w, r, 500)
 	}
+	fmt.Printf("connect to host: " + r.Host + " from " +  r.RemoteAddr + "" + r.URL.Path+" method:"+ r.Method + "\n")
 }
 
 func errorHandler(w http.ResponseWriter, r *http.Request, status int) {
@@ -74,6 +76,7 @@ func errorHandler(w http.ResponseWriter, r *http.Request, status int) {
 		http.Error(w, http.StatusText(500), 500)
 		return
 	}
+
 }
 
 // обертка для http.FileServer, чтобы она не выдавала список файлов
