@@ -48,13 +48,14 @@ func postHandler(w http.ResponseWriter, r *http.Request) {
 	params := r.URL.Query()
 	page := params.Get(":page")
 	p := path.Join("posts", page)
-
 	var postMD string
 	if page != "" {
 		postMD = p + ".md"
 	} else {
 		postMD = p + "/index.md"
 	}
+
+
 
 	post, status, err := posts.Get(postMD)
 	if err != nil {
