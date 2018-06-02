@@ -5,3 +5,7 @@ import package:
         3)yaml-v2
 
         index.md->posts/index.md
+
+
+
+работа выполнена на основе https://github.com/zaz600/mdserver
